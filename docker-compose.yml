@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  front-service:
+    image: front-service
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    networks:
+      - authentication_microservice_villa-net
+networks:
+  authentication_microservice_villa-net:
+    external: true
